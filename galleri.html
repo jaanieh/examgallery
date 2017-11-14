@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Ja9 - Galleri</title>
+        <link rel="stylesheet" type="text/css" href="style.css"/>
+        
+        <!-- Bootstrap -->
+         <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+       
+    </head>
+    <body>
+        <a href="index.html" class="start">[Gå till start]</a>
+        <div class="rubrik">galleri.</div>
+        
+        <img src="images/graphic/arrowLeft.png" id="arrowLeft"/>
+        <div class="gallery">
+            
+        <div class="image">
+        <img src="images/woods.jpg" class="thumbnail" onclick="popup(this)" alt="Woods" width="250" height="150">
+        <div class="desc">Lensflare in the woods</div>
+        </div>
+        <div class="image">
+        <img src="images/boat.jpg" class="thumbnail" onclick="popup(this)" alt="Woods" width="250" height="150">
+        <div class="desc">At the end of the tram, Saltholmen</div>
+        </div>
+        <div class="image">
+        <img src="images/rail.jpg" class="thumbnail" onclick="popup(this)" alt="Woods" width="250" height="150">
+        <div class="desc">On my way to new adventures</div>
+        </div>
+        <div class="image">
+        <img src="images/sky.jpg" class="thumbnail" onClick="popup(this)" alt="Woods" width="250" height="150">
+        <div class="desc">Dramatic latesummersky in Lilla Edet</div>
+        </div>
+        <div class="image">
+        <img src="images/frost.jpg" class="thumbnail" onclick="popup(this)" alt="Woods" width="250" height="150">
+        <div class="desc">The first frost</div>
+        </div>
+        <div class="image">
+        <img src="images/nods.jpg" class="thumbnail" onclick="popup(this)" alt="Woods" width="250" height="150">
+        <div class="desc">Misty Citynight</div>
+        </div>
+        <div class="image">
+        <img src="images/mist.jpg" class="thumbnail" onclick="popup(this)" alt="Woods" width="250" height="150">
+        <div class="desc">This road leads to nowhere</div>
+        </div>
+        <div class="image">
+        <img src="images/fall.jpg" class="thumbnail" onclick="popup(this)" alt="Woods" width="250" height="150">
+        <div class="desc">Fall in Mölnlycke</div>
+        </div>
+        <div class="image">
+        <img src="images/bridge.jpg" class="thumbnail" onclick="popup(this)" alt="Woods" width="250" height="150">
+        <div class="desc">The bridge to Home</div>
+        </div>
+        <div class="image">
+        <img src="images/sunset.jpg" class="thumbnail" onclick="popup(this)" alt="Woods" width="250" height="150">
+        <div class="desc">Sunrise in Lödöse</div>
+        </div>
+        </div>
+        
+        <img src="images/graphic/arrowRight.png" id="arrowRight"/>
+        
+        
+        <!-- POPUP --> 
+        <div id="cover"></div>
+        <div id="modalPopup"><img src="images/graphic/close.jpg" class="closeCross" /><div id="bigImage"></div></div>
+            
+        
+        <div class="menu">
+            <div class="menuItem">
+                <a href="info.html"><img src="images/graphic/button.png"/>
+                    <div class="menuText">[ INFO ]</div></a>
+            </div>
+            <div class="menuItem">
+                <a href="galleri.html"><img src="images/graphic/button.png"/>
+                    <div class="menuText">[ GALLERI ]</div></a>
+            </div>
+            <div class="menuItem">
+                <a href="kontakt.html"><img src="images/graphic/button.png"/>
+                    <div class="menuText">[ KONTAKT ]</div></a>
+            </div>
+        </div>
+        
+        <footer>COPYRIGHTS © JANIE MOBACKER 2017</footer>
+            
+        <script>
+// ***************** SLIDESHOW ******************** //
+            
+            $(function(){
+                $('.slideContent img:gt(0)').hide();
+                setInterval(function(){
+                  $('.slideContent :first-child').fadeOut()
+                     .next('img').fadeIn()
+                     .end().appendTo('.slideContent');}, 
+                  3000);
+            });
+
+            
+ //************** IMAGE POPUP **************** //
+            
+    // Hämtar div:en där popupbilden skall visas.         
+        var bigImage = document.getElementById("bigImage");
+    // Skapar ett nytt img-element och döper det till pic. 
+        var pic = document.createElement("img");
+            pic.className="picture";
+          
+        
+
+            
+     function popup(img) {
+    //Visar popup:diven onclick
+        var ninjaSldr = document.getElementById("modalPopup");
+        ninjaSldr.parentNode.style.display = "block";
+         var ninjaBG = document.getElementById("cover");
+        ninjaBG.style.display = "block";
+      
+        
+     // Sätter this.img.src (bildlänken som anges i src på varje bild) till variabeln imgLink.  
+         var imgLink = img.src;
+         console.log("url: " + imgLink);
+    // Sätter imgLink till det nya img-elementets src (createElement(img), ovan)
+         pic.src = imgLink;
+    // Lägger till det nya img-elementet med src-länk till div:en bigImage. 
+        bigImage.appendChild(pic);
+        
+    }
+                 
+          $(".thumbnail").click(function () {
+              $("#modalPopup").fadeIn(1000);
+              console.log("hej");
+    });
+
+            $(".closeCross").click(function () {
+               $("#modalPopup").fadeOut(1000);
+                 $("#cover").fadeOut(1000);
+            });
+            
+    //****************** HORIZONTAL SCROLL **********************//
+            
+            $(function() {
+    var $container = $('.gallery'),
+        scroll = $container.width();
+    $('#arrowRight').hover(function() {
+        $container.animate({
+            'scrollLeft': 2000
+        },{duration: 4000, queue: false});
+    }, function(){
+        $container.stop();
+    });
+    $('#arrowLeft').hover(function() {
+        $container.animate({
+            'scrollLeft': -500
+        },{duration: 4000, queue: false});
+    }, function(){
+        $container.stop();
+    });
+
+});
+            
+    //******************* ZOOM BIG PICtuRE ******************//
+            
+        $(".image").click(function () {
+      $("#modalPopup").fadeIn(1000);
+    });
+
+    $(".closeCross").click(function () {
+       $("#modalPopup").fadeOut(1000);
+    });
+            
+    
+
+        </script>
+    </body>
+</html>

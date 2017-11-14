@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Ja9 - Kontakt</title>
+        <link rel="stylesheet" type="text/css" href="style.css"/>
+        
+        <!-- Bootstrap -->
+         <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+       
+    </head>
+    <body>
+         <a href="index.html" class="start">[Gå till start]</a>
+        <div class="rubrik">kontakt.</div>
+        <div class="kontaktContainer">
+            <div class="infotext">
+                <p><strong>Kontaktformulär</strong></p>
+                <form id="form" name="form" method="post" action="sendMail.php"> 
+                <input type="text" name="name" id="name" placeholder="Vad heter du?"/> <br />
+                <input type="email" name="email" id="email" placeholder="På vilken mailadress kan jag nå dig?"/> <br />
+                <textarea name="meddelande" id="meddelande" placeholder="Vad vill du ha hjälp med?" cols="45" rows="3"></textarea> <br />
+                <input type="submit" name="send" id="send" value="Skicka!" onclick="sendMail()" />
+                <div id="messages"></div>
+                </form>
+            </div>
+            <div class="infotext">
+                <p><strong>Socialt</strong></p>
+                <div class="social">
+                <a href="#" target="_top"><img src="images/graphic/facebook.png"/></a>
+                <a href="#" target="_top"><img src="images/graphic/instagram.png"/></a>
+                <a href="#" target="_top"><img src="images/graphic/linkedin.png"/></a>
+                </div>
+                Janie Mobacker<br />
+                E-mail: janie.mobacker@live.se<br />
+                417 61 Göteborg<br />
+                Examensarbete 2017-2018<br />
+                EC-utbildning, Frontend-utveckling<br />
+                </div>
+        </div>
+       
+        <div class="menu">
+            <div class="menuItem">
+                <a href="info.html"><img src="images/graphic/button.png"/>
+                    <div class="menuText">[ INFO ]</div></a>
+            </div>
+            <div class="menuItem">
+                <a href="galleri.html"><img src="images/graphic/button.png"/>
+                    <div class="menuText">[ GALLERI ]</div></a>
+            </div>
+            <div class="menuItem">
+                <a href="kontakt.html"><img src="images/graphic/button.png"/>
+                    <div class="menuText">[ KONTAKT ]</div></a>
+            </div>
+        </div>
+        
+        <footer>COPYRIGHTS © JANIE MOBACKER 2017</footer>
+        
+        <script>
+       
+            function sendMail(){
+                
+                var sentMail = document.getElementById("messages");
+                sentMail.style.display = "inline-block";
+                sentMail.innerText = "Skickat!";
+                
+                    var form = document.getElementById("form");
+                    form.reset();
+            }
+            
+         
+            $('#skicka').click(function() {
+                $('#messages').fadeIn('slow', function() {
+                    $('#messages').fadeTo(4000, 0.1);
+                    });
+                });
+            
+
+
+            
+        </script>
+    </body>
+</html>

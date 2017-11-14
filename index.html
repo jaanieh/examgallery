@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Ja9 Portfolio</title>
+        <link rel="stylesheet" type="text/css" href="style.css"/>
+        
+        <!-- Bootstrap -->
+         <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=yes">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+       
+    </head>
+    <body>
+                
+        
+        <p class="citat">A PHOTOGRAPHER'S PORTFOLIO</p>
+        <div class="slideContent">
+            <img src="images/sky.jpg"/>
+            <img src="images/sunset.jpg"/>
+            <img src="images/sky2.jpg"/>
+            
+        </div>
+        
+        <div class="menu">
+            <div class="menuItem">
+                <a href="info.html"><img src="images/graphic/button.png"/>
+                    <div class="menuText">[ INFO ]</div></a>
+            </div>
+            <div class="menuItem">
+                <a href="galleri.html"><img src="images/graphic/button.png"/>
+                    <div class="menuText">[ GALLERI ]</div></a>
+            </div>
+            <div class="menuItem">
+                <a href="kontakt.html"><img src="images/graphic/button.png"/>
+                    <div class="menuText">[ KONTAKT ]</div></a>
+            </div>
+        </div>
+    
+        <footer>COPYRIGHTS © JANIE MOBACKER 2017</footer>
+
+    
+        <script>
+// ***************** SLIDESHOW ******************** //
+            
+            $(function(){
+                $('.slideContent img:gt(0)').hide();
+                setInterval(function(){
+                  $('.slideContent :first-child').fadeOut()
+                     .next('img').fadeIn()
+                     .end().appendTo('.slideContent');}, 
+                  3000);
+            });
+
+
+            
+ //************** Info POPUP **************** //
+
+
+            
+    function infoPopup() {
+        document.getElementById("infoCover").style.display = "block";
+
+    }
+            
+ //************** kontakt POPUP **************** //
+            
+    function kontaktPopup() {
+        document.getElementById("kontaktCover").style.display = "block";   
+    }
+            
+                 
+    /*function exitPopup() {
+        
+        var cover = document.getElementById("cover");
+        cover.style.display = "none";
+        
+        }*/
+            
+       $(".closeCross").click(function () {
+               $("#modalPopup").fadeOut(1000);
+                 $("#cover").fadeOut(1000);
+            });
+            
+        
+        
+
+            
+            // active link
+    $('a.active').on('click', function(){
+    $('a.active').removeClass('active'); 
+    $(this).addClass('active');
+        });
+
+        </script>
+    </body>
+</html>
