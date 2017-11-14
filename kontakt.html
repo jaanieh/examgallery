@@ -14,6 +14,11 @@
     <body>
          <a href="index.html" class="start">[Gå till start]</a>
         <div class="rubrik">kontakt.</div>
+        <div class="slideContent1">
+            <img src="images/sky.jpg"/>
+            <img src="images/sunset.jpg"/>
+            <img src="images/sky2.jpg"/>
+        </div>
         <div class="kontaktContainer">
             <div class="infotext">
                 <p><strong>Kontaktformulär</strong></p>
@@ -76,7 +81,16 @@
                     });
                 });
             
-
+            // ***************** SLIDESHOW ******************** //
+            
+            $(function(){
+                $('.slideContent1 img:gt(0)').hide();
+                setInterval(function(){
+                  $('.slideContent1 :first-child').fadeOut()
+                     .next('img').fadeIn()
+                     .end().appendTo('.slideContent1');}, 
+                  3000);
+            });
 
             
         </script>

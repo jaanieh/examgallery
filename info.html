@@ -14,6 +14,11 @@
     <body>
         <a href="index.html" class="start">[Gå till start]</a>
         <div class="rubrik">info.</div>
+        <div class="slideContent1">
+            <img src="images/sky.jpg"/>
+            <img src="images/sunset.jpg"/>
+            <img src="images/sky2.jpg"/>
+        </div>
         <div class="infoContainer">
             <div class="infotext"><h2><strong>Tjänster/Produkter:</strong></h2> <br/> <strong>Photo Shoot</strong> - Jag sysslar med photoshoots / fotograferingar på beställning. Vid intresse, skricka iväg ett meddelande via kontaktformuläret och beskriv vad du/ni är intresserade av, så kommer vi att kolla på det ihop och komma fram till ett pris. <br/><br/>
             <strong>Canvas</strong> - Fotografierna i galleriet är även till salu, kontakta vid intresse. 
@@ -41,7 +46,16 @@
             
         <footer>COPYRIGHTS © JANIE MOBACKER 2017</footer>
         <script>
-
+            // ***************** SLIDESHOW ******************** //
+            
+            $(function(){
+                $('.slideContent1 img:gt(0)').hide();
+                setInterval(function(){
+                  $('.slideContent1 :first-child').fadeOut()
+                     .next('img').fadeIn()
+                     .end().appendTo('.slideContent1');}, 
+                  3000);
+            });
         </script>
     </body>
 </html>
